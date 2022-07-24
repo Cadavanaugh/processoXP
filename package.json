@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon -r dotenv/config index.js"
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "rs": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
-  "author": "",
+  "author": "Jovane Andreani de Castro",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -22,6 +23,5 @@
     "babel-register": "^6.26.0",
     "nodemon": "^2.0.19",
     "sequelize-cli": "^6.4.1"
-  },
-  "type": "module"
+  }
 }
