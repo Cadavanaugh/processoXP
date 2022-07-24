@@ -14,5 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {tableName: 'Contas', timestamps: false});
 
+  Conta.associate = (models) => {
+    models.Conta.hasMany(models.Compra,{
+      foreignKey: 'CodCliente',
+      as: 'Compras'
+    })
+  }
+
   return Conta;
 };

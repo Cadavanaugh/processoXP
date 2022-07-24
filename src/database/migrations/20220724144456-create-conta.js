@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
       },
       Saldo: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DOUBLE
       }
     });
   },
