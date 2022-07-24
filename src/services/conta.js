@@ -1,5 +1,6 @@
 const {Conta} = require('../database/models');
-const Joi = require('joi')
+const Joi = require('joi');
+const NotFoundError = require('../middlewares/NotFoundError');
 
 const contaService = {
   getInfo: async (CodCliente) => {
@@ -55,6 +56,35 @@ const contaService = {
     }
 
     return value
+  },
+  validateSaque: async (body) => {
+
+    try{
+      const {Saldo} = await Conta.findByPk(body.CodCliente)
+    } catch {
+      throw new NotFoundError("Conta não encontrada.")
+    }
+
+    const {Saldo} = await Conta.findByPk(body.CodCliente)
+
+    const schema = Joi.object({
+      CodCliente:Joi.number().integer().positive().required(),
+      Valor:Joi.number().integer().positive().max(Saldo).required()
+    })
+
+    const {error, value} = schema.validate(body)
+
+    if(error) {
+      error.message = error.details[0].message
+      error.code = 400;
+      throw error
+    }
+
+    return value
+  },
+  validateConta: async (CodCliente) => {
+    const conta = await Conta.findByPk(CodCliente)
+    if(!conta) throw new NotFoundError("Conta não encontrada.")
   }
 }
 

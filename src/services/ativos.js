@@ -1,4 +1,5 @@
 const {Conta, Ativo, ClienteAtivo} = require('../database/models')
+const NotFoundError = require('../middlewares/NotFoundError');
 
 const AtivoService = {
   getAllByClient: async (CodCliente) => {
@@ -18,6 +19,20 @@ const AtivoService = {
   getAsset: async (CodAtivo) => {
     const ativos = await Ativo.findOne({where: {CodAtivo}})
     return ativos
+  },
+  validateAllByClient: async (CodCliente) => {
+    try{
+      const {dataValues: {Saldo}} = await Conta.findByPk(CodCliente);
+    } catch {
+      throw new NotFoundError("Conta não encontrada")
+    }
+  },
+  validateGetAsset: async (CodAtivo) => {
+    try{
+      const {dataValues: {Valor: ValorPorAtivo, QtdeAtivos}} = await Ativo.findByPk(CodAtivo)
+    } catch {
+      throw new NotFoundError("Ativo não encontrado")
+    }
   }
 }
 
