@@ -50,6 +50,7 @@ Usei a biblioteca **swagger-autogen** para criar a documentação de forma autom
   - Conteinerização com Docker
   - Autenticação através de JWT e criptografia com BCrypt
   - Testes unitários (mocha, chai e sinon)
+  - Documentação Swagger mais detalhada
 
 # Como executar o projeto
 Para executar o projeto basta rodar o comando **`npm run xp`** no diretório raíz. O comando `npm run xp` é a junção dos scripts `npm run rs` e `npm run start`.

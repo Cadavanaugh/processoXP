@@ -3,17 +3,17 @@
   "info": {
     "version": "1.0.0",
     "title": "XP. Inc Corretora API",
-    "description": ""
+    "description": "API desenvolvida durante o processo seletive XP. Inc.",
+    "contact": {
+      "email":"jovanecastro12@gmail.com"
+    }
   },
   "host": "localhost:4001",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
   "paths": {
     "/conta/{CodCliente}": {
       "get": {
-        "description": "",
+        "summary": "Listar informações da conta de um cliente.",
         "parameters": [
           {
             "name": "CodCliente",
@@ -26,34 +26,37 @@
           "200": {
             "description": "OK"
           }
-        }
-      }
-    },
+        },
+        "tags":["Conta"]
+      },
     "/conta/saque": {
       "post": {
-        "description": "Sacar dinheiro da conta.",
+        "summary": "Sacar dinheiro da conta.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
+        },
+        "tags":["Conta"]
         }
       }
     },
     "/conta/deposito": {
       "post": {
-        "description": "Depositar dinheiro na conta.",
+        "summary": "Depositar dinheiro na conta.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "tags":["Conta"]
       }
     },
     "/ativos/{CodCliente}": {
       "get": {
-        "description": "Listar todos os ativos de um cliente.",
+        "summary": "Listar todos os ativos de um cliente.",
         "parameters": [
           {
             "name": "CodCliente",
@@ -66,12 +69,13 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "tags":["Ativos"]
       }
     },
     "/ativos/detail/{CodAtivo}": {
       "get": {
-        "description": "Listar as propriedades do ativo.",
+        "summary": "Listar as propriedades do ativo.",
         "parameters": [
           {
             "name": "CodAtivo",
@@ -84,29 +88,32 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "tags":["Ativos"]
       }
     },
     "/investimentos/comprar": {
       "post": {
-        "description": "Comprar ativos.",
+        "summary": "Comprar ativos.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "tags":["Investimentos"]
       }
     },
     "/investimentos/vender": {
       "post": {
-        "description": "Vender ativos.",
+        "summary": "Vender ativos.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "tags":["Investimentos"]
       }
     }
   }
