@@ -1,0 +1,113 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "XP. Inc Corretora API",
+    "description": ""
+  },
+  "host": "localhost:4001",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/conta/{CodCliente}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "CodCliente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/conta/saque": {
+      "post": {
+        "description": "Sacar dinheiro da conta.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/conta/deposito": {
+      "post": {
+        "description": "Depositar dinheiro na conta.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ativos/{CodCliente}": {
+      "get": {
+        "description": "Listar todos os ativos de um cliente.",
+        "parameters": [
+          {
+            "name": "CodCliente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ativos/detail/{CodAtivo}": {
+      "get": {
+        "description": "Listar as propriedades do ativo.",
+        "parameters": [
+          {
+            "name": "CodAtivo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/investimentos/comprar": {
+      "post": {
+        "description": "Comprar ativos.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/investimentos/vender": {
+      "post": {
+        "description": "Vender ativos.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

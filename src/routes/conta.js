@@ -1,6 +1,5 @@
 const {Router} = require('express');
 const contaController = require('../controllers/conta');
-const auth = require('../middlewares/auth');
 
 const contaRouter = Router();
 

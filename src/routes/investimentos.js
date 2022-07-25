@@ -1,6 +1,5 @@
 const {Router} = require('express');
 const investimentosController = require('../controllers/investimentos');
-const auth = require('../middlewares/auth');
 
 const investimentosRouter = Router();
 
